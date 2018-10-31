@@ -7,8 +7,10 @@
   #messages { list-style-type: none; margin: 0; padding: 0; }
   #messages li { padding: 5px 10px; }
   #messages li:nth-child(odd) { background: #eee; }
+  #total {position: fixed; top:0; right: 10px; font-size: 35px; color: red;}
 </style>
 
+<div id="total">0</div>
 <ul id="messages"></ul>
 
 <form action="">
@@ -27,6 +29,10 @@
       $('#m').val('')
 
       return false
+    })
+
+    socket.on('change total', total => {
+      $('#total').text(total)
     })
 
     socket.on('chat message', msg => {
