@@ -19,6 +19,12 @@ io.on('connection', socket => {
   })
 })
 
+app.get('/send', (req, res) => {
+  //@todo: Sending message to all users
+
+  res.send('Sent')
+})
+
 server.listen(4000, () => {
   console.log('The server is running: http://localhost:4000')
 })
